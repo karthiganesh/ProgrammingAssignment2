@@ -1,15 +1,31 @@
-## Put comments here that give an overall description of what your
-## functions do
+## KG 22-MAR-2015
+## makeCacheMatrix to cache the Inverse operation for increasing performance
 
-## Write a short comment describing this function
-
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(x = numeric()) {
+        inverse <- NULL   ## initialize inverse value
+        set <- function(y) {
+                x <<- y
+                inverse <<- NULL
+        }
+        get <- function() x
+        setInverse <- function(mean) inverse <<- solve(x)   ## if necessary find inverse using solve function
+        getInverse <- function() m
+        matrix(set = set, get = get,
+             setInverse = setInverse,
+             getInverse = getInverse)
 }
 
 
-## Write a short comment describing this function
+## cacheSolve to find the inverse using cacheed version, this approach will improve the performance
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        m <- x$getInverse()
+        if(!is.null(m)) {
+                message("getting cached inverse")
+                return(m)
+        }
+        data <- x$get()
+        m <- mean(data, ...)
+        x$setInverse(m)
+        m
 }
