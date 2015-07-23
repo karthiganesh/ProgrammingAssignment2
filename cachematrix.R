@@ -1,4 +1,4 @@
-## KG 22-MAR-2015
+## KG 23-JUL-2015
 ## makeCacheMatrix to cache the Inverse operation for increasing performance
 
 makeCacheMatrix <- function(x = numeric()) {
